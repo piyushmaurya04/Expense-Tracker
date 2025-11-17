@@ -11,9 +11,9 @@ COPY Frontend/ .
 RUN npm run build
 
 ## Use a supported Maven image with OpenJDK 17. Some older tags are not available on Docker Hub.
-## Use a supported Maven image with OpenJDK 17. Some tags vary across registries.
-## Using the official `maven:3.9.4-jdk-17` tag which is widely available.
-FROM maven:3.9.4-jdk-17 AS maven-build
+## Use a supported Maven image with Eclipse Temurin JDK 17.
+## This tag is consistently available on Docker Hub.
+FROM maven:3.9.4-eclipse-temurin-17 AS maven-build
 WORKDIR /app
 # Copy pom and backend sources
 COPY pom.xml ./
