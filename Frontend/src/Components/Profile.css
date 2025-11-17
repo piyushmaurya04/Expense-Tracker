@@ -1,0 +1,579 @@
+/* Profile.css - Dark Theme with Advanced Animations */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.3),
+            0 0 40px rgba(16, 185, 129, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.5),
+            0 0 60px rgba(16, 185, 129, 0.2);
+    }
+}
+
+@keyframes buttonHover {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes inputFocus {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+
+    100% {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+}
+
+/* Profile Container */
+.profile {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 3rem 2.5rem;
+    background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+    border-radius: 24px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    animation: fadeInScale 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(16, 185, 129, 0.1),
+            transparent);
+    animation: shimmer 3s infinite;
+}
+
+.profile::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #059669, #10b981);
+}
+
+.profile h1 {
+    color: #10b981;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.profile h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #10b981, transparent);
+    border-radius: 2px;
+}
+
+/* Error and Success Messages */
+.error-message,
+.success-message {
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    animation: slideInLeft 0.5s ease-out;
+    position: relative;
+    z-index: 1;
+    border: 2px solid;
+}
+
+.error-message {
+    background: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.success-message {
+    background: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Profile Details */
+.profile-details {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-details p {
+    margin-bottom: 1.2rem;
+    color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    animation: slideInLeft 0.5s ease-out backwards;
+}
+
+.profile-details p:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.profile-details p:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.profile-details p:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.profile-details strong {
+    color: #10b981;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-size: 0.8rem;
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+/* Editable Inputs */
+.EditableInputs {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    background: rgba(31, 41, 55, 0.6);
+    color: #f9fafb;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    margin-top: 0.4rem;
+}
+
+.EditableInputs:read-only {
+    cursor: default;
+    background: rgba(31, 41, 55, 0.4);
+    border-color: rgba(107, 114, 128, 0.2);
+}
+
+.EditableInputs:not(:read-only) {
+    cursor: text;
+}
+
+.EditableInputs:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15),
+        0 8px 24px rgba(16, 185, 129, 0.2);
+    background: rgba(31, 41, 55, 0.9);
+    transform: translateY(-2px);
+    animation: inputFocus 0.6s ease-out;
+}
+
+.EditableInputs:hover:not(:read-only) {
+    border-color: rgba(16, 185, 129, 0.5);
+    background: rgba(31, 41, 55, 0.8);
+}
+
+.EditableInputs.green {
+    border-color: #10b981;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.EditableInputs.black {
+    color: #d1d5db;
+}
+
+/* Buttons Container */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    animation: fadeInScale 0.7s ease-out 0.5s backwards;
+}
+
+.buttons button {
+    padding: 0.8rem 2rem;
+    min-width: 120px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.buttons button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.buttons button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Edit Button */
+.edit-button {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.edit-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(59, 130, 246, 0.5);
+    animation: buttonHover 0.6s ease;
+}
+
+.edit-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Save Button */
+.savebtn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3) !important;
+    animation: glowPulse 2s infinite;
+}
+
+.savebtn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(16, 185, 129, 0.5) !important;
+}
+
+.savebtn:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* Logout Button */
+.logout-button {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+}
+
+.logout-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(239, 68, 68, 0.5);
+    animation: buttonHover 0.6s ease;
+}
+
+.logout-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* Cancel Button */
+.cancel-button {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+    color: white;
+    box-shadow: 0 8px 25px rgba(107, 114, 128, 0.3);
+}
+
+.cancel-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(107, 114, 128, 0.5);
+    animation: buttonHover 0.6s ease;
+}
+
+.cancel-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(107, 114, 128, 0.4);
+}
+
+/* Disabled Button State */
+.buttons button:disabled {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%) !important;
+    cursor: not-allowed;
+    opacity: 0.5;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.buttons button:disabled:hover {
+    transform: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile {
+        margin: 2rem 1rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .profile h1 {
+        font-size: 2rem;
+    }
+
+    .buttons {
+        gap: 1rem;
+    }
+
+    .buttons button {
+        padding: 0.9rem 2rem;
+        min-width: 120px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile {
+        margin: 1.5rem 0.8rem;
+        padding: 1.5rem 1rem;
+        border-radius: 20px;
+    }
+
+    .profile h1 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-details {
+        margin-bottom: 2rem;
+    }
+
+    .profile-details p {
+        margin-bottom: 1.2rem;
+    }
+
+    .EditableInputs {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .buttons button {
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+        min-width: unset;
+    }
+}
+
+/* Accessibility */
+.buttons button:focus-visible {
+    outline: 3px solid rgba(16, 185, 129, 0.5);
+    outline-offset: 3px;
+}
+
+.EditableInputs:focus-visible {
+    outline: 3px solid rgba(16, 185, 129, 0.5);
+    outline-offset: 2px;
+}
+
+/* Light Theme Overrides */
+.light-theme .profile {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+.light-theme .profile::before {
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(37, 99, 235, 0.1),
+            transparent);
+}
+
+.light-theme .profile::after {
+    background: linear-gradient(90deg, #2563eb, #3b82f6, #2563eb);
+}
+
+.light-theme .profile h1 {
+    color: #2563eb;
+    text-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+}
+
+.light-theme .profile h1::after {
+    background: linear-gradient(90deg, transparent, #2563eb, transparent);
+}
+
+.light-theme .error-message {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.light-theme .success-message {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.light-theme .profile-details p {
+    color: #2d3748;
+}
+
+.light-theme .profile-details strong {
+    color: #2563eb;
+    text-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
+}
+
+.light-theme .EditableInputs {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #e2e8f0;
+    color: #1a202c;
+}
+
+.light-theme .EditableInputs:read-only {
+    background: rgba(248, 246, 241, 0.6);
+    border-color: #e2e8f0;
+}
+
+.light-theme .EditableInputs:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15),
+        0 8px 24px rgba(37, 99, 235, 0.2);
+    background: rgba(255, 255, 255, 1);
+}
+
+.light-theme .EditableInputs:hover:not(:read-only) {
+    border-color: rgba(37, 99, 235, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.light-theme .EditableInputs.green {
+    border-color: #2563eb;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+    background: rgba(37, 99, 235, 0.05);
+}
+
+.light-theme .EditableInputs.black {
+    color: #1a202c;
+}
+
+.light-theme .edit-button {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+}
+
+.light-theme .edit-button:hover {
+    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.5);
+}
+
+.light-theme .savebtn {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3) !important;
+}
+
+.light-theme .savebtn:hover {
+    box-shadow: 0 12px 35px rgba(37, 99, 235, 0.5) !important;
+}
+
+.light-theme .logout-button {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+}
+
+.light-theme .logout-button:hover {
+    box-shadow: 0 12px 35px rgba(239, 68, 68, 0.5);
+}
+
+.light-theme .cancel-button {
+    background: linear-gradient(135deg, #a0aec0 0%, #718096 100%);
+    box-shadow: 0 8px 25px rgba(113, 128, 150, 0.3);
+}
+
+.light-theme .cancel-button:hover {
+    box-shadow: 0 12px 35px rgba(113, 128, 150, 0.5);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

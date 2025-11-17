@@ -1,0 +1,128 @@
+/* Global Theme Variables and Utilities */
+
+/* Dark Theme Variables (Default) */
+:root.dark-theme,
+:root {
+    /* Backgrounds */
+    --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    --bg-secondary: #1f2937;
+    --bg-tertiary: #111827;
+    --bg-card: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+
+    /* Text Colors */
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-tertiary: #9ca3af;
+
+    /* Accent Colors */
+    --accent-primary: #10b981;
+    --accent-secondary: #059669;
+    --accent-hover: #34d399;
+
+    /* Borders */
+    --border-color: #374151;
+    --border-accent: rgba(16, 185, 129, 0.3);
+
+    /* Shadows */
+    --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 25px 70px rgba(0, 0, 0, 0.6);
+    --shadow-accent: 0 0 20px rgba(16, 185, 129, 0.3);
+
+    /* Overlays */
+    --overlay-light: rgba(255, 255, 255, 0.05);
+    --overlay-accent: rgba(16, 185, 129, 0.1);
+
+    /* Scrollbar */
+    --scrollbar-track: #1f2937;
+    --scrollbar-thumb: linear-gradient(180deg, #10b981, #059669);
+    --scrollbar-thumb-hover: linear-gradient(180deg, #34d399, #10b981);
+}
+
+/* Light Theme Variables */
+:root.light-theme {
+    /* Backgrounds - Elegant cream and soft whites */
+    --bg-primary: linear-gradient(135deg, #FDFBF7 0%, #F8F6F1 50%, #F0EDE5 100%);
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #F8F6F1;
+    --bg-card: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+
+    /* Text Colors - Professional dark grays */
+    --text-primary: #1a202c;
+    --text-secondary: #2d3748;
+    --text-tertiary: #4a5568;
+
+    /* Accent Colors - Elegant royal blue */
+    --accent-primary: #2563eb;
+    --accent-secondary: #1d4ed8;
+    --accent-hover: #3b82f6;
+
+    /* Borders - Subtle and refined */
+    --border-color: #e2e8f0;
+    --border-accent: rgba(37, 99, 235, 0.3);
+
+    /* Shadows - Soft and elegant */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+    --shadow-accent: 0 0 20px rgba(37, 99, 235, 0.15);
+
+    /* Overlays - Clean and subtle */
+    --overlay-light: rgba(0, 0, 0, 0.03);
+    --overlay-accent: rgba(37, 99, 235, 0.08);
+
+    /* Scrollbar - Refined blue accent */
+    --scrollbar-track: #F8F6F1;
+    --scrollbar-thumb: linear-gradient(180deg, #3b82f6, #2563eb);
+    --scrollbar-thumb-hover: linear-gradient(180deg, #60a5fa, #3b82f6);
+}
+
+/* Global utility classes for theme support */
+.card-themed {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--overlay-light);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.text-themed {
+    color: var(--text-primary);
+}
+
+.text-secondary-themed {
+    color: var(--text-secondary);
+}
+
+.btn-themed {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-primary);
+    border: 2px solid var(--border-accent);
+    transition: all 0.3s ease;
+}
+
+.btn-themed:hover {
+    background: linear-gradient(135deg, var(--accent-hover), var(--accent-primary));
+    box-shadow: var(--shadow-accent);
+}
+
+.border-themed {
+    border-color: var(--border-color);
+}
+
+.bg-themed {
+    background: var(--bg-secondary);
+}
+
+/* Smooth transitions for theme switching */
+* {
+    transition: background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Prevent transition on page load */
+.no-transition * {
+    transition: none !important;
+}

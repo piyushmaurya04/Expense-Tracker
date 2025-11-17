@@ -1,0 +1,440 @@
+/* ExpenseItems.css - Dark Theme with Advanced Animations */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes cardHover {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-5px) scale(1.02);
+    }
+
+    100% {
+        transform: translateY(-8px) scale(1.03);
+    }
+}
+
+@keyframes iconBounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3) rotate(10deg);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes fadeInInfo {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glowEffect {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2),
+            0 0 30px rgba(16, 185, 129, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 4px 25px rgba(16, 185, 129, 0.4),
+            0 0 50px rgba(16, 185, 129, 0.2);
+    }
+}
+
+/* Main Container */
+.mainContainer {
+    max-width: 100%;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+/* Card Container */
+.container1 {
+    margin-top: 1rem;
+    border-radius: 16px;
+    width: 90%;
+    background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+    padding: 1.8rem;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: slideInRight 0.6s ease-out;
+}
+
+.container1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(16, 185, 129, 0.15),
+            transparent);
+    transition: left 0.8s ease;
+}
+
+.container1:hover::before {
+    left: 100%;
+}
+
+.container1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #10b981, #059669, #10b981);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.container1:hover {
+    border-color: rgba(16, 185, 129, 0.6);
+    transform: translateY(-8px) scale(1.02);
+    animation: glowEffect 2s infinite;
+}
+
+.container1:hover::after {
+    opacity: 1;
+}
+
+/* Expense Title Container */
+.expenseTitleContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.expenseTitleContainer div {
+    flex-grow: 1;
+}
+
+.expenseTitleContainer h5 {
+    color: #10b981;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.8px;
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    transition: all 0.3s ease;
+}
+
+.container1:hover .expenseTitleContainer h5 {
+    color: #34d399;
+    text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+}
+
+/* Horizontal Line */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.5), transparent);
+    margin: 1.2rem 0;
+}
+
+/* Icon Container */
+.iconContainer {
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.editIcon {
+    color: #10b981;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));
+}
+
+.editIcon:hover {
+    color: #34d399;
+    transform: scale(1.3) rotate(15deg);
+    filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.6));
+    animation: iconBounce 0.5s ease;
+}
+
+.deleteIcon {
+    color: #ef4444;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.3));
+}
+
+.deleteIcon:hover {
+    color: #f87171;
+    transform: scale(1.3) rotate(-15deg);
+    filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.6));
+    animation: iconBounce 0.5s ease;
+}
+
+/* Expense Info */
+.expenseInfo {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.expenseInfo p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #d1d5db;
+    background: rgba(31, 41, 55, 0.6);
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    animation: fadeInInfo 0.5s ease-out backwards;
+}
+
+.expenseInfo p:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.expenseInfo p:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.expenseInfo p:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.expenseInfo p:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.expenseInfo p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #10b981, #059669);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.expenseInfo p:hover {
+    border-color: rgba(16, 185, 129, 0.5);
+    transform: translateX(8px) translateY(-2px);
+    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.2);
+    background: rgba(31, 41, 55, 0.9);
+    color: #f9fafb;
+}
+
+.expenseInfo p:hover::before {
+    opacity: 1;
+}
+
+.expenseInfo span {
+    font-weight: 800;
+    color: #10b981;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 0.5rem;
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+/* Category Specific Colors */
+.expenseInfo p:nth-child(1) span {
+    color: #8b5cf6;
+    /* Purple for category */
+}
+
+.expenseInfo p:nth-child(2) span {
+    color: #3b82f6;
+    /* Blue for description */
+}
+
+.expenseInfo p:nth-child(3) span {
+    color: #10b981;
+    /* Green for amount */
+}
+
+.expenseInfo p:nth-child(4) span {
+    color: #f59e0b;
+    /* Orange for date */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container1 {
+        width: 95%;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .expenseTitleContainer h5 {
+        font-size: 1.2rem;
+    }
+
+    .iconContainer {
+        gap: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .expenseInfo p {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container1 {
+        width: 98%;
+        padding: 1.2rem;
+    }
+
+    .expenseTitleContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .expenseTitleContainer h5 {
+        font-size: 1.1rem;
+    }
+
+    .iconContainer {
+        position: static;
+        gap: 1.5rem;
+        font-size: 1.6rem;
+    }
+
+    .expenseInfo p {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.9rem;
+    }
+
+    .expenseInfo span {
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus States for Accessibility */
+.editIcon:focus,
+.deleteIcon:focus {
+    outline: 3px solid rgba(16, 185, 129, 0.5);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Delete Success Message */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.delete-success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    animation: fadeInScale 0.3s ease-out;
+    backdrop-filter: blur(5px);
+}
+
+.delete-success-message {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.95) 0%, rgba(5, 150, 105, 0.95) 100%);
+    border: 3px solid #10b981;
+    border-radius: 16px;
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    animation: fadeInScale 0.4s ease-out;
+    max-width: 500px;
+}
+
+.delete-success-message .success-icon {
+    color: #ffffff;
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    animation: iconBounce 0.6s ease-out;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.delete-success-message span {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}

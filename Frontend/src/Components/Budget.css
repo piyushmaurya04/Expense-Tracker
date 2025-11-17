@@ -1,0 +1,1250 @@
+/* Budget.css - Dark Theme with Animations */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Main Budget Container */
+.budget-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+    border-radius: 24px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+    animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: "Poppins", sans-serif;
+    min-height: calc(100vh - 120px);
+}
+
+/* Header Section */
+.budget-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(107, 114, 128, 0.3);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.budget-header h1 {
+    font-size: 2rem;
+    color: #10b981;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.budget-header .subtitle {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Period Selector */
+.period-selector {
+    margin-bottom: 2rem;
+    animation: slideInLeft 0.8s ease-out 0.2s;
+    animation-fill-mode: backwards;
+}
+
+.selector-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(31, 41, 55, 0.6);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    max-width: fit-content;
+}
+
+.selector-icon {
+    color: #10b981;
+    font-size: 1.3rem;
+}
+
+.month-select,
+.year-select {
+    background: rgba(17, 24, 39, 0.8);
+    border: 2px solid rgba(107, 114, 128, 0.4);
+    color: #f9fafb;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Poppins", sans-serif;
+}
+
+.month-select:hover,
+.year-select:hover {
+    border-color: #10b981;
+    background: rgba(17, 24, 39, 0.95);
+}
+
+.month-select:focus,
+.year-select:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+/* Calendar and Comparison Wrapper */
+.calendar-comparison-wrapper {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out 0.35s;
+    animation-fill-mode: backwards;
+}
+
+/* Calendar Heatmap Section */
+.calendar-heatmap-section {
+    background: linear-gradient(145deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.9) 100%);
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    flex: 1;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(107, 114, 128, 0.2);
+}
+
+.calendar-header h2 {
+    color: #10b981;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.calendar-nav-btn {
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    color: #10b981;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.calendar-nav-btn:hover {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10b981;
+    transform: scale(1.05);
+}
+
+.calendar-legend {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #9ca3af;
+    font-size: 0.85rem;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+}
+
+.calendar-grid {
+    margin-bottom: 1.5rem;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.weekday {
+    text-align: center;
+    color: #10b981;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    border: 2px solid rgba(107, 114, 128, 0.2);
+    border-radius: 8px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.calendar-day.empty {
+    background: transparent;
+    border: none;
+    cursor: default;
+}
+
+.calendar-day:not(.empty):hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    border-color: #10b981;
+}
+
+.calendar-day.today {
+    border: 2px solid #10b981;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.day-number {
+    font-weight: 600;
+    color: #f9fafb;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.day-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    width: 100%;
+    align-items: center;
+}
+
+.day-income,
+.day-expense {
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.day-income {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.15);
+}
+
+.day-expense {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.15);
+}
+
+.amount-label {
+    font-size: 0.65rem;
+}
+
+.calendar-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(31, 41, 55, 0.5);
+    border-radius: 12px;
+    border: 2px solid rgba(107, 114, 128, 0.2);
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    text-align: center;
+}
+
+.summary-label {
+    color: #9ca3af;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.summary-value {
+    color: #f9fafb;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.summary-value.income-value {
+    color: #10b981;
+}
+
+.summary-value.expense-value {
+    color: #ef4444;
+}
+
+.summary-value.balance-positive {
+    color: #3b82f6;
+}
+
+.summary-value.balance-negative {
+    color: #fb923c;
+}
+
+/* Monthly Comparison Section */
+.monthly-comparison-section {
+    background: linear-gradient(145deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.9) 100%);
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.comparison-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(107, 114, 128, 0.2);
+}
+
+.comparison-header h2 {
+    color: #10b981;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.comparison-chart-container {
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.comparison-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(31, 41, 55, 0.5);
+    border-radius: 12px;
+    border: 2px solid rgba(107, 114, 128, 0.2);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: rgba(17, 24, 39, 0.5);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(17, 24, 39, 0.7);
+    transform: translateX(5px);
+}
+
+.stat-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+}
+
+.stat-label {
+    color: #9ca3af;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* Summary Cards */
+.budget-summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.8s ease-out 0.3s;
+    animation-fill-mode: backwards;
+}
+
+.budget-card {
+    background: linear-gradient(145deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.9) 100%);
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    border-radius: 16px;
+    padding: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.budget-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.budget-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.budget-card:hover::before {
+    opacity: 1;
+}
+
+.card-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+}
+
+.income-icon {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
+    color: #10b981;
+}
+
+.expense-icon {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
+    color: #ef4444;
+}
+
+.balance-positive-icon {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.2));
+    color: #3b82f6;
+}
+
+.balance-negative-icon {
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.2), rgba(249, 115, 22, 0.2));
+    color: #fb923c;
+}
+
+.budget-card:hover .card-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.card-icon {
+    font-size: 1.8rem;
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-content h3 {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-content .amount {
+    color: #f9fafb;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+}
+
+.balance-card.positive .amount {
+    color: #3b82f6;
+}
+
+.balance-card.negative .amount {
+    color: #fb923c;
+}
+
+.card-content .label {
+    color: #6b7280;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 0.3rem;
+}
+
+/* Chart Section */
+.chart-section {
+    background: linear-gradient(145deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.9) 100%);
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out 0.4s;
+    animation-fill-mode: backwards;
+}
+
+.chart-section h2 {
+    color: #10b981;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Breakdown Table */
+.breakdown-table {
+    background: rgba(31, 41, 55, 0.5);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid rgba(107, 114, 128, 0.2);
+}
+
+.breakdown-table h3 {
+    color: #f9fafb;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+}
+
+.breakdown-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.breakdown-table th {
+    background: rgba(17, 24, 39, 0.6);
+    color: #10b981;
+    font-weight: 600;
+    padding: 0.8rem;
+    text-align: left;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.breakdown-table td {
+    color: #f9fafb;
+    padding: 0.8rem;
+    border-bottom: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+.breakdown-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.breakdown-table tbody tr:hover {
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.color-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 0.8rem;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: #9ca3af;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.empty-subtitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* Insights Section */
+.insights-section {
+    background: linear-gradient(145deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.9) 100%);
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    animation: fadeInUp 0.8s ease-out 0.5s;
+    animation-fill-mode: backwards;
+}
+
+.insights-section h2 {
+    color: #10b981;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.insight-card {
+    background: rgba(31, 41, 55, 0.6);
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.insight-card:hover {
+    border-color: #10b981;
+    transform: translateY(-3px);
+}
+
+.insight-card h4 {
+    color: #9ca3af;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 0 0 0.8rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.insight-value {
+    color: #f9fafb;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.insight-detail {
+    color: #6b7280;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Alert */
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .budget-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .budget-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .budget-summary-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .budget-card {
+        padding: 1.5rem;
+    }
+
+    .selector-group {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem;
+    }
+
+    .month-select,
+    .year-select {
+        width: 100%;
+    }
+
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-section {
+        padding: 1.5rem;
+    }
+
+    .calendar-comparison-wrapper {
+        flex-direction: column;
+    }
+
+    .calendar-heatmap-section {
+        padding: 1.5rem;
+    }
+
+    .monthly-comparison-section {
+        padding: 1.5rem;
+    }
+
+    .calendar-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .calendar-nav-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .calendar-legend {
+        gap: 1rem;
+    }
+
+    .legend-item {
+        font-size: 0.75rem;
+    }
+
+    .weekday {
+        font-size: 0.7rem;
+        padding: 0.3rem;
+    }
+
+    .calendar-days {
+        gap: 4px;
+    }
+
+    .calendar-day {
+        padding: 0.3rem;
+    }
+
+    .day-number {
+        font-size: 0.75rem;
+    }
+
+    .day-income,
+    .day-expense {
+        font-size: 0.6rem;
+        padding: 0.05rem 0.2rem;
+    }
+
+    .amount-label {
+        font-size: 0.55rem;
+    }
+
+    .calendar-summary {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .summary-value {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .budget-container {
+        padding: 1rem;
+    }
+
+    .budget-header h1 {
+        font-size: 1.3rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .card-content .amount {
+        font-size: 1.5rem;
+    }
+
+    .card-icon-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+
+    .card-icon {
+        font-size: 1.5rem;
+    }
+
+    .breakdown-table {
+        padding: 1rem;
+        overflow-x: auto;
+    }
+
+    .breakdown-table table {
+        min-width: 400px;
+    }
+
+    .calendar-comparison-wrapper {
+        flex-direction: column;
+    }
+
+    .calendar-heatmap-section {
+        padding: 1rem;
+    }
+
+    .monthly-comparison-section {
+        padding: 1rem;
+    }
+
+    .comparison-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .stat-value {
+        font-size: 1.1rem;
+    }
+
+    .calendar-header {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .calendar-header h2 {
+        font-size: 1rem;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .calendar-nav-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+    .calendar-legend {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .legend-color {
+        width: 16px;
+        height: 16px;
+    }
+
+    .weekday {
+        font-size: 0.65rem;
+    }
+
+    .calendar-days {
+        gap: 3px;
+    }
+
+    .calendar-day {
+        padding: 0.2rem;
+        border-radius: 4px;
+    }
+
+    .day-number {
+        font-size: 0.7rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .day-details {
+        gap: 0.1rem;
+    }
+
+    .day-income,
+    .day-expense {
+        font-size: 0.5rem;
+        padding: 0.05rem 0.15rem;
+    }
+
+    .amount-label {
+        font-size: 0.5rem;
+    }
+
+    .summary-label {
+        font-size: 0.75rem;
+    }
+
+    .summary-value {
+        font-size: 1rem;
+    }
+}
+
+/* Light Theme Overrides */
+.light-theme .budget-container {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+.light-theme .budget-header {
+    border-bottom: 2px solid rgba(226, 232, 240, 0.5);
+}
+
+.light-theme .budget-header h1 {
+    color: #2563eb;
+}
+
+.light-theme .budget-header .subtitle {
+    color: #4a5568;
+}
+
+.light-theme .selector-group {
+    background: rgba(248, 246, 241, 0.8);
+    border: 2px solid rgba(226, 232, 240, 0.5);
+}
+
+.light-theme .selector-icon {
+    color: #2563eb;
+}
+
+.light-theme .month-select,
+.light-theme .year-select {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    color: #1a202c;
+}
+
+.light-theme .month-select:hover,
+.light-theme .year-select:hover {
+    border-color: #2563eb;
+}
+
+.light-theme .month-select:focus,
+.light-theme .year-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.light-theme .budget-card {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    border: 2px solid #e2e8f0;
+}
+
+.light-theme .budget-card::before {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
+}
+
+.light-theme .budget-card:hover {
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+}
+
+.light-theme .income-icon {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15));
+    color: #059669;
+}
+
+.light-theme .expense-icon {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.15));
+    color: #dc2626;
+}
+
+.light-theme .balance-positive-icon {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(29, 78, 216, 0.15));
+    color: #2563eb;
+}
+
+.light-theme .balance-negative-icon {
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.15), rgba(249, 115, 22, 0.15));
+    color: #f97316;
+}
+
+.light-theme .card-content h3 {
+    color: #4a5568;
+}
+
+.light-theme .card-content .amount {
+    color: #1a202c;
+}
+
+.light-theme .card-content .label {
+    color: #718096;
+}
+
+.light-theme .chart-section {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    border: 2px solid #e2e8f0;
+}
+
+.light-theme .chart-section h2 {
+    color: #2563eb;
+}
+
+.light-theme .breakdown-table {
+    background: rgba(248, 246, 241, 0.6);
+    border: 2px solid #e2e8f0;
+}
+
+.light-theme .breakdown-table h3 {
+    color: #1a202c;
+}
+
+.light-theme .breakdown-table th {
+    background: rgba(226, 232, 240, 0.6);
+    color: #2563eb;
+}
+
+.light-theme .breakdown-table td {
+    color: #1a202c;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.light-theme .breakdown-table tbody tr:hover {
+    background: rgba(37, 99, 235, 0.05);
+}
+
+.light-theme .empty-state {
+    color: #4a5568;
+}
+
+.light-theme .empty-subtitle {
+    color: #718096;
+}
+
+.light-theme .insights-section {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    border: 2px solid #e2e8f0;
+}
+
+.light-theme .insights-section h2 {
+    color: #2563eb;
+}
+
+.light-theme .insight-card {
+    background: rgba(248, 246, 241, 0.6);
+    border: 2px solid #e2e8f0;
+}
+
+.light-theme .insight-card:hover {
+    border-color: #2563eb;
+}
+
+.light-theme .insight-card h4 {
+    color: #4a5568;
+}
+
+.light-theme .insight-value {
+    color: #1a202c;
+}
+
+.light-theme .insight-detail {
+    color: #718096;
+}
+
+/* Light Theme Calendar Styles */
+.light-theme .calendar-heatmap-section {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    border: 2px solid #e2e8f0;
+}
+
+.light-theme .calendar-header {
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.light-theme .calendar-header h2 {
+    color: #2563eb;
+}
+
+.light-theme .calendar-nav-btn {
+    background: rgba(37, 99, 235, 0.1);
+    border: 2px solid rgba(37, 99, 235, 0.3);
+    color: #2563eb;
+}
+
+.light-theme .calendar-nav-btn:hover {
+    background: rgba(37, 99, 235, 0.2);
+    border-color: #2563eb;
+}
+
+.light-theme .legend-item {
+    color: #4a5568;
+}
+
+.light-theme .legend-color {
+    border: 1px solid #cbd5e0;
+}
+
+.light-theme .weekday {
+    color: #2563eb;
+}
+
+.light-theme .calendar-day {
+    border: 2px solid #e2e8f0;
+}
+
+.light-theme .calendar-day:not(.empty):hover {
+    border-color: #2563eb;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+}
+
+.light-theme .calendar-day.today {
+    border: 2px solid #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.light-theme .day-number {
+    color: #1a202c;
+}
+
+.light-theme .day-income {
+    color: #059669;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.light-theme .day-expense {
+    color: #dc2626;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.light-theme .calendar-summary {
+    background: rgba(248, 246, 241, 0.6);
+    border: 2px solid #e2e8f0;
+}
+
+.light-theme .summary-label {
+    color: #4a5568;
+}
+
+.light-theme .summary-value {
+    color: #1a202c;
+}
+
+.light-theme .summary-value.income-value {
+    color: #059669;
+}
+
+.light-theme .summary-value.expense-value {
+    color: #dc2626;
+}
+
+.light-theme .summary-value.balance-positive {
+    color: #2563eb;
+}
+
+.light-theme .summary-value.balance-negative {
+    color: #f97316;
+}
+
+/* Light Theme Calendar Comparison */
+.light-theme .monthly-comparison-section {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    border: 2px solid #e2e8f0;
+}
+
+.light-theme .comparison-header {
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.light-theme .comparison-header h2 {
+    color: #2563eb;
+}
+
+.light-theme .comparison-stats {
+    background: rgba(248, 246, 241, 0.6);
+    border: 2px solid #e2e8f0;
+}
+
+.light-theme .stat-item {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.light-theme .stat-item:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.light-theme .stat-label {
+    color: #4a5568;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

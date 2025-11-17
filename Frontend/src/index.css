@@ -1,0 +1,113 @@
+/* Import Inter Font for consistent typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Global Theme Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS Variables for Themes */
+:root {
+    /* Dark Theme (Default) */
+    --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    --bg-secondary: #1f2937;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --border-color: #374151;
+    --scrollbar-track: #1f2937;
+    --scrollbar-thumb: linear-gradient(180deg, #10b981, #059669);
+    --scrollbar-thumb-hover: linear-gradient(180deg, #34d399, #10b981);
+    --selection-bg: rgba(16, 185, 129, 0.3);
+
+    /* Compact Font Sizes - Matching ALLExpense page */
+    --font-size-xs: 0.65rem;
+    /* Extra small */
+    --font-size-sm: 0.75rem;
+    /* Small */
+    --font-size-base: 0.85rem;
+    /* Base */
+    --font-size-md: 0.95rem;
+    /* Medium */
+    --font-size-lg: 1.1rem;
+    /* Large */
+    --font-size-xl: 1.3rem;
+    /* Extra large */
+    --font-size-2xl: 1.5rem;
+    /* 2X large */
+}
+
+/* Light Theme */
+.light-theme {
+    --bg-primary: linear-gradient(135deg, #FDFBF7 0%, #F8F6F1 50%, #F0EDE5 100%);
+    --bg-secondary: #FFFFFF;
+    --text-primary: #1a202c;
+    --text-secondary: #2d3748;
+    --border-color: #e2e8f0;
+    --scrollbar-track: #F8F6F1;
+    --scrollbar-thumb: linear-gradient(180deg, #3b82f6, #2563eb);
+    --scrollbar-thumb-hover: linear-gradient(180deg, #60a5fa, #3b82f6);
+    --selection-bg: rgba(37, 99, 235, 0.2);
+}
+
+html {
+    font-size: 16px;
+    /* Base font size */
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--bg-primary);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 10px;
+    border: 2px solid var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+/* Selection Color */
+::selection {
+    background: var(--selection-bg);
+    color: var(--text-primary);
+}
+
+::-moz-selection {
+    background: var(--selection-bg);
+    color: var(--text-primary);
+}

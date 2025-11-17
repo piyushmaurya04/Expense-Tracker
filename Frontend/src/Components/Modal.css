@@ -1,0 +1,307 @@
+/* Modal.css - Dark Theme Modal Component */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease-out;
+    overflow-y: auto;
+}
+
+/* Modal Container */
+.modal-container {
+    background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+    border-radius: 20px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(16, 185, 129, 0.2),
+        0 0 60px rgba(16, 185, 129, 0.3);
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    margin: auto;
+}
+
+.modal-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #34d399, #10b981);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+}
+
+/* Modal Sizes */
+.modal-small {
+    width: 100%;
+    max-width: 400px;
+}
+
+.modal-medium {
+    width: 100%;
+    max-width: 750px;
+}
+
+.modal-large {
+    width: 100%;
+    max-width: 900px;
+}
+
+.modal-full {
+    width: 95%;
+    max-width: 1200px;
+    max-height: 95vh;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 1rem 1.3rem;
+    border-bottom: 2px solid rgba(107, 114, 128, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(31, 41, 55, 0.5);
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #10b981;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Close Button */
+.modal-close-btn {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    border-radius: 8px;
+    color: #ef4444;
+    font-size: 1.3rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.modal-close-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+.modal-close-btn:active {
+    transform: rotate(90deg) scale(0.95);
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 1.3rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1;
+    max-height: calc(85vh - 120px);
+}
+
+/* Custom Scrollbar for Modal Body */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: rgba(31, 41, 55, 0.5);
+    border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #10b981, #059669);
+    border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #34d399, #10b981);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 0.5rem;
+    }
+
+    .modal-container {
+        border-radius: 16px;
+    }
+
+    .modal-header {
+        padding: 1.2rem 1.5rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .modal-close-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.3rem;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+
+    .modal-medium,
+    .modal-large,
+    .modal-full {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-header {
+        padding: 1rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .modal-close-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    .modal-overlay,
+    .modal-container {
+        animation: none;
+    }
+}
+
+/* Focus Trap */
+.modal-close-btn:focus-visible {
+    outline: 3px solid rgba(239, 68, 68, 0.5);
+    outline-offset: 2px;
+}
+
+/* Light Theme Overrides */
+.light-theme .modal-overlay {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.light-theme .modal-container {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(37, 99, 235, 0.1),
+        0 0 60px rgba(37, 99, 235, 0.15);
+}
+
+.light-theme .modal-container::before {
+    background: linear-gradient(90deg, #2563eb, #3b82f6, #2563eb);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+.light-theme .modal-header {
+    border-bottom: 2px solid rgba(226, 232, 240, 0.6);
+    background: rgba(248, 246, 241, 0.6);
+}
+
+.light-theme .modal-header h2 {
+    color: #2563eb;
+    text-shadow: 0 0 20px rgba(37, 99, 235, 0.25);
+}
+
+.light-theme .modal-close-btn {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
+.light-theme .modal-close-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+.light-theme .modal-body {
+    color: #1a202c;
+}
+
+.light-theme .modal-body::-webkit-scrollbar-track {
+    background: rgba(226, 232, 240, 0.5);
+}
+
+.light-theme .modal-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #2563eb, #3b82f6);
+}
+
+.light-theme .modal-body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #3b82f6, #60a5fa);
+}
