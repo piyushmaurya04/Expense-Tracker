@@ -3,7 +3,8 @@
 # 2) Build backend (Maven + Spring Boot) and copy frontend build into resources
 # 3) Runtime: run the packaged Spring Boot jar; server port respects $PORT (Railway)
 
-FROM node:18-alpine AS frontend-build
+## Use Node 20 for frontend build because Vite requires Node >= 20.19
+FROM node:20-alpine AS frontend-build
 WORKDIR /frontend
 COPY Frontend/package*.json ./
 RUN npm ci --silent
