@@ -7,7 +7,8 @@
 FROM node:20-alpine AS frontend-build
 WORKDIR /frontend
 COPY Frontend/package*.json ./
-RUN npm ci --silent
+# Prefer `npm ci` for reproducible installs; if it fails (lockfile mismatch), fall back to `npm install`.
+RUN npm ci --silent || npm install --silent
 COPY Frontend/ .
 RUN npm run build
 
