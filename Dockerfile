@@ -10,7 +10,8 @@ RUN npm ci --silent
 COPY Frontend/ .
 RUN npm run build
 
-FROM maven:3.8.8-openjdk-17 AS maven-build
+## Use a supported Maven image with OpenJDK 17. Some older tags are not available on Docker Hub.
+FROM maven:3.9.4-openjdk-17-slim AS maven-build
 WORKDIR /app
 # Copy pom and backend sources
 COPY pom.xml ./
