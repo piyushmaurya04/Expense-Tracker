@@ -29,7 +29,6 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/api/expenses")
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class ExpenseController {
 
     @Autowired
