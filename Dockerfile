@@ -1,7 +1,7 @@
 # Multi-stage Dockerfile
 # 1) Build frontend (Vite/React)
 # 2) Build backend (Maven + Spring Boot) and copy frontend build into resources
-# 3) Runtime: run the packaged Spring Boot jar; server port respects $PORT (Railway)
+# 3) Runtime: run the packaged Spring Boot jar; server port respects $PORT (Railway) 
 
 ## Use Node 20 for frontend build because Vite requires Node >= 20.19
 FROM node:20-alpine AS frontend-build
