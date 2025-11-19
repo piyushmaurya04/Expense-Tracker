@@ -158,7 +158,8 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(Arrays.asList(
                 "http://localhost:5173",
                 "http://localhost:5174",
-                "https://expense-tracker-4-89l9.onrender.com"));
+                "https://expense-tracker-4-89l9.onrender.com",
+                "https://expense-tracker-2-xkvu.onrender.com"));
 
         /**
          * ALLOWED METHODS
