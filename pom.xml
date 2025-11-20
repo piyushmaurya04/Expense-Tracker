@@ -37,9 +37,9 @@
         
         <!-- MySQL Driver: To connect with MySQL database -->
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <scope>runtime</scope>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.28</version>
         </dependency>
         
         <!-- Spring Security: For authentication & authorization -->

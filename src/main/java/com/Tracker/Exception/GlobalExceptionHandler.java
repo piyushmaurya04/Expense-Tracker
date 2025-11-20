@@ -167,13 +167,17 @@ public class GlobalExceptionHandler {
         response.put("timestamp", LocalDateTime.now());
         response.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
         response.put("error", "Internal Server Error");
-        response.put("message", "An unexpected error occurred. Please try again later.");
+        response.put("message", "An unexpected error occurred: " + ex.getMessage());
 
         /**
          * Log the actual error for debugging (not sent to frontend)
          */
-        System.err.println("Unexpected error: " + ex.getMessage());
-        ex.printStackTrace();
+        System.err.println("========== EXCEPTION DETAILS ==========");
+        System.err.println("Exception Type: " + ex.getClass().getName());
+        System.err.println("Error Message: " + ex.getMessage());
+        System.err.println("Stack Trace:");
+        ex.printStackTrace(System.err);
+        System.err.println("=========================================");
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }

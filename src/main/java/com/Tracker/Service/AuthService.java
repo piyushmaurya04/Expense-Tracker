@@ -49,43 +49,49 @@ public class AuthService {
      * @return MessageResponse with success/error message
      */
     public MessageResponseDTO registerUser(SignUpRequestDTO signupRequest) {
-        /**
-         * STEP 1: Check if username already exists
-         */
-        if (userRepository.existsByUsername(signupRequest.getUsername())) {
-            return new MessageResponseDTO("Error: Username is already taken!");
+        try {
+            /**
+             * STEP 1: Check if username already exists
+             */
+            if (userRepository.existsByUsername(signupRequest.getUsername())) {
+                return new MessageResponseDTO("Error: Username is already taken!");
+            }
+
+            /**
+             * STEP 2: Check if email already exists
+             */
+            if (userRepository.existsByEmail(signupRequest.getEmail())) {
+                return new MessageResponseDTO("Error: Email is already in use!");
+            }
+
+            /**
+             * STEP 3: Create new user
+             */
+            User user = new User();
+            user.setUsername(signupRequest.getUsername());
+            user.setEmail(signupRequest.getEmail());
+
+            /**
+             * ENCRYPT PASSWORD using BCrypt
+             * NEVER store plain passwords!
+             * 
+             * Example:
+             * Plain: "123456"
+             * Encrypted: "$2a$10$N9qo8uLOickgx2ZMRZoMye.IcAJQQ8NvP9xJ7R.3R0L0I6CqH.Y1i"
+             */
+            user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
+
+            /**
+             * STEP 4: Save user to database
+             */
+            userRepository.save(user);
+
+            return new MessageResponseDTO("User registered successfully!");
+        } catch (Exception e) {
+            System.err.println("Registration error: " + e.getMessage());
+            e.printStackTrace();
+            return new MessageResponseDTO("Error: Registration failed - " + e.getMessage());
         }
-
-        /**
-         * STEP 2: Check if email already exists
-         */
-        if (userRepository.existsByEmail(signupRequest.getEmail())) {
-            return new MessageResponseDTO("Error: Email is already in use!");
-        }
-
-        /**
-         * STEP 3: Create new user
-         */
-        User user = new User();
-        user.setUsername(signupRequest.getUsername());
-        user.setEmail(signupRequest.getEmail());
-
-        /**
-         * ENCRYPT PASSWORD using BCrypt
-         * NEVER store plain passwords!
-         * 
-         * Example:
-         * Plain: "123456"
-         * Encrypted: "$2a$10$N9qo8uLOickgx2ZMRZoMye.IcAJQQ8NvP9xJ7R.3R0L0I6CqH.Y1i"
-         */
-        user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
-
-        /**
-         * STEP 4: Save user to database
-         */
-        userRepository.save(user);
-
-        return new MessageResponseDTO("User registered successfully!");
     }
 
     /**
@@ -96,52 +102,58 @@ public class AuthService {
      * @return JwtResponse with access token, refresh token, and user info
      */
     public JwtResponseDTO loginUser(LoginRequestDTO loginRequest) {
-        /**
-         * STEP 1: Authenticate user
-         * AuthenticationManager checks username and password
-         * It calls UserDetailsServiceImpl.loadUserByUsername()
-         * Then compares passwords using BCrypt
-         */
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginRequest.getUsername(),
-                        loginRequest.getPassword()));
+        try {
+            /**
+             * STEP 1: Authenticate user
+             * AuthenticationManager checks username and password
+             * It calls UserDetailsServiceImpl.loadUserByUsername()
+             * Then compares passwords using BCrypt
+             */
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            loginRequest.getUsername(),
+                            loginRequest.getPassword()));
 
-        /**
-         * STEP 2: Set authentication in Security Context
-         * Now Spring Security knows user is logged in
-         */
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+            /**
+             * STEP 2: Set authentication in Security Context
+             * Now Spring Security knows user is logged in
+             */
+            SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        /**
-         * STEP 3: Generate JWT access token
-         * This token expires in 24 hours (or whatever we configured)
-         */
-        String jwt = jwtUtils.generateJwtToken(authentication);
+            /**
+             * STEP 3: Generate JWT access token
+             * This token expires in 24 hours (or whatever we configured)
+             */
+            String jwt = jwtUtils.generateJwtToken(authentication);
 
-        /**
-         * STEP 4: Get user details from authentication
-         */
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+            /**
+             * STEP 4: Get user details from authentication
+             */
+            UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 
-        /**
-         * STEP 5: Create refresh token
-         * This token expires in 7 days (long-lived)
-         * Used to get new access tokens without re-login
-         */
-        RefreshToken refreshToken = refreshTokenService.createRefreshToken(userDetails.getId());
+            /**
+             * STEP 5: Create refresh token
+             * This token expires in 7 days (long-lived)
+             * Used to get new access tokens without re-login
+             */
+            RefreshToken refreshToken = refreshTokenService.createRefreshToken(userDetails.getId());
 
-        /**
-         * STEP 6: Return response with tokens and user info
-         * NO PASSWORD included!
-         */
-        return new JwtResponseDTO(
-                jwt,
-                refreshToken.getToken(),
-                userDetails.getId(),
-                userDetails.getUsername(),
-                userDetails.getEmail(),
-                userDetails.getCreatedAt());
+            /**
+             * STEP 6: Return response with tokens and user info
+             * NO PASSWORD included!
+             */
+            return new JwtResponseDTO(
+                    jwt,
+                    refreshToken.getToken(),
+                    userDetails.getId(),
+                    userDetails.getUsername(),
+                    userDetails.getEmail(),
+                    userDetails.getCreatedAt());
+        } catch (Exception e) {
+            System.err.println("Login error: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Login failed: " + e.getMessage());
+        }
     }
 
     /**

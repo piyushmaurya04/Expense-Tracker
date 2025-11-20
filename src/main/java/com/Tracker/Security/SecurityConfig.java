@@ -118,10 +118,8 @@ public class SecurityConfig {
                                 "/favicon.ico",
                                 "/static/**",
                                 "/assets/**",
-                                "/**/*.js",
-                                "/**/*.css",
-                                "/**/*.map",
                                 "/api/auth/**",
+                                "/api/health/**",
                                 "/api/test/**",
                                 "/error")
                         .permitAll()
