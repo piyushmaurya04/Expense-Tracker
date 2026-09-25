@@ -134,6 +134,7 @@ public class SecurityConfig {
                                 "/static/**",
                                 "/api/auth/**",
                                 "/api/test/**",
+                                "/health",
                                 "/error")
                         .permitAll()
                         .anyRequest().authenticated())
