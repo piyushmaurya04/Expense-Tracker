@@ -23,7 +23,7 @@
     </properties>
     
     <dependencies>
-        <!-- Spring Boot Web Starter: For creating REST APIs -->
+        <!-- Spring Boot Web Starter: For creating REST API's -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
