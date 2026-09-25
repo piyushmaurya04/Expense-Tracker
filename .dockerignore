@@ -1,6 +1,7 @@
 target
 .git
 .gitignore
-Frontend
 DATABASE_SCHEMA.md
 *.md
+
+!Frontend
