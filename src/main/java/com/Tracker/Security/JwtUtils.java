@@ -5,9 +5,11 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
 import javax.crypto.SecretKey;
 import java.util.Date;
 
@@ -16,10 +18,12 @@ public class JwtUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtUtils.class);
 
-    // 256-bit (32 bytes) secret key - Base64 encoded
-    // In production, store this in environment variables or secure vault
-    private String jwtSecret = "YzlmMWUwYTRiNmQ3ZTNmMmE4YzVkOWI3ZTRmMDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=";
-    private int jwtExpirationMs = 86400000; // 24 hours
+    private final String jwtSecret;
+    private final int jwtExpirationMs = 86400000; // 24 hours
+
+    public JwtUtils(@Value("${jwt.secret}") String jwtSecret) {
+        this.jwtSecret = jwtSecret;
+    }
 
     private SecretKey getSigningKey() {
         byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
