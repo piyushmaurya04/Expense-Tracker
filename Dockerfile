@@ -8,6 +8,7 @@ RUN chmod +x mvnw
 RUN ./mvnw -B dependency:go-offline
 
 COPY src src
+COPY Frontend Frontend
 RUN ./mvnw -B clean package -DskipTests
 
 # Run the application with a smaller JRE image.
