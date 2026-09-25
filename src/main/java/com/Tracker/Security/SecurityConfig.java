@@ -1,6 +1,7 @@
 package com.Tracker.Security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -44,6 +45,9 @@ public class SecurityConfig {
      */
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
+
+    @Value("${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:5174,http://localhost:3000}")
+    private String allowedOrigins;
 
     /**
      * CREATE AUTH TOKEN FILTER BEAN
@@ -112,7 +116,26 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**", "/api/test/**", "/error").permitAll()
+                        .requestMatchers(
+                                "/",
+                                "/index.html",
+                                "/login",
+                                "/register",
+                                "/dashboard",
+                                "/add-expense",
+                                "/all-expenses",
+                                "/add-income",
+                                "/all-incomes",
+                                "/profile",
+                                "/analytics",
+                                "/budget",
+                                "/favicon.ico",
+                                "/assets/**",
+                                "/static/**",
+                                "/api/auth/**",
+                                "/api/test/**",
+                                "/error")
+                        .permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
@@ -143,9 +166,11 @@ public class SecurityConfig {
          * app)
          * For production: Add your deployed frontend URL
          */
-        configuration.setAllowedOrigins(Arrays.asList(
-                "http://localhost:5173",
-                "http://localhost:5174"));
+        String[] origins = Arrays.stream(allowedOrigins.split(","))
+                .map(String::trim)
+                .filter(origin -> !origin.isEmpty())
+                .toArray(String[]::new);
+        configuration.setAllowedOrigins(Arrays.asList(origins));
 
         /**
          * ALLOWED METHODS
