@@ -1,0 +1,196 @@
+/* DeleteConfirmModal.css - Professional confirmation modal */
+
+.delete-modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.48);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    padding: 1.5rem;
+}
+
+.delete-modal-container {
+    position: relative;
+    width: min(100%, 620px);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid #ef4444;
+    border-radius: 18px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    padding: 2.25rem 2rem 1.75rem;
+}
+
+.delete-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 12px;
+    background: rgba(148, 163, 184, 0.12);
+    color: var(--text-tertiary);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-modal-close:hover {
+    background: rgba(148, 163, 184, 0.2);
+    color: var(--text-primary);
+}
+
+.delete-modal-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1.3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(239, 68, 68, 0.08);
+    border: 2px solid rgba(239, 68, 68, 0.25);
+    color: #ef4444;
+    font-size: 2.2rem;
+}
+
+.delete-modal-container h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.delete-modal-container p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.delete-modal-container p strong {
+    color: var(--accent-primary);
+    font-weight: 700;
+}
+
+.delete-warning {
+    margin-top: 0.9rem !important;
+    color: #dc2626 !important;
+    font-size: 0.95rem !important;
+    font-style: italic;
+}
+
+.delete-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+.delete-modal-actions button {
+    border: none;
+    border-radius: 14px;
+    min-width: 160px;
+    padding: 0.9rem 1.4rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel {
+    background: #e2e8f0;
+    color: #1f2937;
+    box-shadow: 0 4px 14px rgba(148, 163, 184, 0.2);
+}
+
+.btn-cancel:hover {
+    background: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(239, 68, 68, 0.25);
+}
+
+.btn-delete:hover {
+    background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+    transform: translateY(-1px);
+}
+
+.delete-modal-actions button:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.35);
+    outline-offset: 3px;
+}
+
+@media (max-width: 576px) {
+    .delete-modal-container {
+        padding: 2rem 1.2rem 1.4rem;
+    }
+
+    .delete-modal-actions {
+        flex-direction: column;
+    }
+
+    .delete-modal-actions button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .delete-modal-overlay,
+    .delete-modal-close,
+    .delete-modal-actions button {
+        transition: none;
+    }
+}
+
+.light-theme .delete-modal-container {
+    border-top-color: #ef4444;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+}
+
+.light-theme .delete-modal-close {
+    background: rgba(148, 163, 184, 0.12);
+}
+
+.light-theme .delete-modal-icon {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.light-theme .delete-modal-container h2 {
+    color: #111827;
+}
+
+.light-theme .delete-modal-container p {
+    color: #334155;
+}
+
+.light-theme .delete-modal-container p strong {
+    color: #2563eb;
+}
+
+.light-theme .btn-cancel {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.light-theme .btn-delete {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}

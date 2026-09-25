@@ -1,0 +1,353 @@
+/* Loaded after feature styles to provide one stable visual language across the app. */
+*, *::before, *::after {
+    animation: none !important;
+    text-shadow: none !important;
+}
+
+body, .auth-page, .headContainer, .dashboard-container, .analytics-container, .budget-container, .profile {
+    background: #f5f7fa !important;
+    color: #152033 !important;
+}
+
+:root, :root.light-theme {
+    color-scheme: light;
+}
+
+.auth-page .login-form, .auth-page .register-form {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+}
+
+.auth-page .login-form::before, .auth-page .login-form::after,
+.auth-page .register-form::before, .auth-page .register-form::after {
+    display: none !important;
+}
+
+.auth-page .auth-brand, .auth-page .auth-heading h1 {
+    color: #152033 !important;
+}
+
+.auth-page .auth-heading p, .auth-page .auth-footer a {
+    color: #2167b2 !important;
+}
+
+.auth-page .auth-heading span, .auth-page .auth-footer,
+.auth-page .form-group label {
+    color: #536174 !important;
+}
+
+.auth-page .form-group {
+    margin-bottom: 16px !important;
+}
+
+.auth-page .form-group label {
+    display: block !important;
+    padding: 0 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    transform: none !important;
+}
+
+.auth-page .form-group label::before {
+    display: none !important;
+}
+
+.auth-page .form-control {
+    min-height: 40px !important;
+    padding: 8px 10px !important;
+    border: 1px solid #e3e8ef !important;
+    border-radius: 6px !important;
+    background: #ffffff !important;
+    color: #152033 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.auth-page .form-control:focus, .auth-page .form-control:hover:not(:focus) {
+    border-color: #2167b2 !important;
+    background: #ffffff !important;
+    color: #152033 !important;
+    box-shadow: 0 0 0 3px #eaf2fc !important;
+    transform: none !important;
+}
+
+.auth-page .btn-success {
+    min-height: 40px !important;
+    margin-top: 8px !important;
+    border: 1px solid #2167b2 !important;
+    border-radius: 6px !important;
+    background: #2167b2 !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    transform: none !important;
+}
+
+.auth-page .btn-success::before {
+    display: none !important;
+}
+
+.dashboard-container::before, .dashboard-container::after,
+.analytics-header::before, .budget-header::before, .quick-action-card::before,
+.modal-container::before {
+    display: none !important;
+}
+
+.quick-action-card:hover, .expense-list-item:hover, .income-list-item:hover,
+.modal-close-btn:hover, .action-btn:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.dashboard-container, .mainCOntainer, .analytics-container, .budget-container, .profile {
+    width: min(100%, 1320px) !important;
+    margin: 0 auto !important;
+}
+
+.right-content, .left-sidebar .stats-panel, .analytics-header, .view-mode-toggle,
+.time-range-selector, .summary-card, .chart-section, .insights-section, .period-selector,
+.monthly-comparison-section, .calendar-heatmap-section, .comparison-section, .budget-card,
+.insight-card, .pagination, .profile-details, .feature-page .add-expense-form,
+.modal-container, .delete-modal-container, .logout-modal-container {
+    background: #ffffff !important;
+    border: 1px solid #e3e8ef !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+}
+
+.profile .edit-button,
+.profile .savebtn {
+    color: #ffffff !important;
+}
+
+.feature-page .add-expense-form {
+    max-width: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.analytics-header, .budget-header {
+    padding: 0 0 22px !important;
+    border: 0 !important;
+    border-bottom: 1px solid #e3e8ef !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+}
+
+.analytics-header h1, .budget-header h1, .head h1, .stats-panel h3,
+.chart-section h2, .calendar-header h2, .monthly-comparison-section h2,
+.summary-card h3, .budget-card h3, .insight-card h4 {
+    color: #152033 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+}
+
+.analytics-header .subtitle, .budget-header .subtitle, .stat-label, .expense-count,
+.budget-card .label, .summary-card span, .chart-section p {
+    color: #7d899a !important;
+}
+
+.content-wrapper {
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr) !important;
+    gap: 20px !important;
+}
+
+.left-sidebar {
+    top: 86px !important;
+}
+
+.right-content {
+    padding: 22px !important;
+}
+
+.stat-card {
+    border: 1px solid #e3e8ef !important;
+    border-radius: 6px !important;
+    background: #f8fafc !important;
+    box-shadow: none !important;
+}
+
+.stat-value, .expense-list-item .item-amount, .income-list-item .item-amount,
+.budget-card .amount, .summary-card .amount {
+    color: #152033 !important;
+    font-family: 'IBM Plex Mono', monospace !important;
+}
+
+.expense-list-item, .income-list-item {
+    min-height: 62px !important;
+    grid-template-columns: minmax(150px, 2fr) minmax(110px, 1.2fr) minmax(90px, .8fr) minmax(100px, .9fr) auto !important;
+    gap: 14px !important;
+    padding: 12px 14px !important;
+    border: 1px solid #e3e8ef !important;
+    border-radius: 6px !important;
+    background: #ffffff !important;
+}
+
+.expense-list-item .item-title, .expense-list-item .item-amount,
+.income-list-item .item-title, .income-list-item .item-amount {
+    color: #152033 !important;
+}
+
+.expense-list-item .item-category, .income-list-item .item-category {
+    border: 0 !important;
+    border-radius: 4px !important;
+    background: #eaf2fc !important;
+    color: #2167b2 !important;
+}
+
+.expense-list-item .item-date, .income-list-item .item-date {
+    color: #536174 !important;
+}
+
+.expense-list-item .edit-icon, .income-list-item .edit-icon {
+    color: #2167b2 !important;
+}
+
+.expense-list-item .delete-icon, .income-list-item .delete-icon {
+    color: #c84444 !important;
+}
+
+.toggle-btn, .range-buttons button, .action-btn, .calendar-nav-btn {
+    border: 1px solid #e3e8ef !important;
+    border-radius: 6px !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    color: #536174 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+}
+
+.toggle-btn.active, .range-buttons button.active {
+    border-color: #2167b2 !important;
+    background: #eaf2fc !important;
+    color: #2167b2 !important;
+}
+
+.dashboard-action-panel {
+    border: 1px solid #e3e8ef !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    padding: 22px !important;
+    box-shadow: none !important;
+}
+
+.quick-action-card {
+    min-height: 92px !important;
+    border: 1px solid #e3e8ef !important;
+    border-radius: 6px !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+}
+
+.quick-action-card:hover, .quick-action-card:focus-visible {
+    border-color: #2167b2 !important;
+    background: #eaf2fc !important;
+}
+
+.profile-edit-notice {
+    margin: 16px 0 0;
+    border: 1px solid #c9dcf4;
+    border-radius: 6px;
+    background: #eaf2fc;
+    color: #245b9b;
+    padding: 9px 12px;
+    font-size: 13px;
+}
+
+.workspace-brand, .topbar-title, .dashboard-heading h1, .panel-heading h2,
+.quick-action-card h3, .dashboard-period strong {
+    color: #152033 !important;
+}
+
+.topbar-eyebrow, .welcome-subtitle, .dashboard-period, .panel-heading p,
+.quick-action-card p, .action-arrow, .profile-chip, .workspace-nav-link,
+.workspace-logout, .nav-section-label {
+    color: #536174 !important;
+}
+
+.workspace-nav-link svg {
+    color: #7d899a !important;
+}
+
+.workspace-nav-link.active, .workspace-nav-link.active svg,
+.workspace-nav-link:hover, .workspace-nav-link:hover svg {
+    color: #2167b2 !important;
+}
+
+.sidebar-brand-row { display: flex; align-items: center; justify-content: space-between; }
+.sidebar-close-btn, .sidebar-menu-btn { display: none; }
+.sidebar-backdrop { display: none; }
+
+@media (min-width: 761px) {
+    #root > .headContainer {
+        margin-left: 0 !important;
+    }
+
+    #root > .dashboard-container:not(.app-sidebar),
+    #root > .analytics-container:not(.app-sidebar),
+    #root > .budget-container:not(.app-sidebar),
+    #root > .profile:not(.app-sidebar),
+    #root > .container.mt-4:not(.app-sidebar),
+    #root .headContainer .mainCOntainer {
+        width: calc(100% - 236px) !important;
+        max-width: none !important;
+        margin: 0 0 0 236px !important;
+    }
+
+    #root > .dashboard-container:not(.app-sidebar),
+    #root > .analytics-container:not(.app-sidebar),
+    #root > .budget-container:not(.app-sidebar),
+    #root > .profile:not(.app-sidebar),
+    #root > .container.mt-4:not(.app-sidebar),
+    #root .headContainer .mainCOntainer {
+        padding-left: 32px !important;
+        padding-right: 32px !important;
+    }
+
+    body.sidebar-collapsed .workspace-topbar {
+        margin-left: 72px !important;
+    }
+
+    body.sidebar-collapsed #root > .dashboard-container:not(.app-sidebar),
+    body.sidebar-collapsed #root > .analytics-container:not(.app-sidebar),
+    body.sidebar-collapsed #root > .budget-container:not(.app-sidebar),
+    body.sidebar-collapsed #root > .profile:not(.app-sidebar),
+    body.sidebar-collapsed #root > .container.mt-4:not(.app-sidebar),
+    body.sidebar-collapsed #root .headContainer .mainCOntainer {
+        width: calc(100% - 72px) !important;
+        margin-left: 72px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .content-wrapper { grid-template-columns: 1fr !important; }
+    .left-sidebar { position: static !important; }
+}
+
+@media (max-width: 760px) {
+    .dashboard-container, .mainCOntainer, .analytics-container, .budget-container, .profile { width: 100% !important; }
+    .right-content { padding: 16px !important; }
+    .expense-list-item, .income-list-item { grid-template-columns: minmax(0, 1fr) auto !important; }
+    .budget-summary-cards, .summary-cards { grid-template-columns: 1fr !important; }
+    .app-sidebar { position: fixed !important; inset: 0 auto 0 0 !important; z-index: 110 !important; width: min(286px, 86vw) !important; min-height: 100vh !important; padding: 18px 14px !important; border-right: 1px solid #e3e8ef !important; border-bottom: 0 !important; background: #ffffff !important; transform: translateX(-102%) !important; transition: transform .18s ease !important; }
+    .app-sidebar.is-open { transform: translateX(0) !important; }
+    .sidebar-brand-row { padding: 0 4px 16px; border-bottom: 1px solid #e3e8ef; }.workspace-brand { padding: 0 !important; }
+    .sidebar-close-btn { display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid #e3e8ef; border-radius: 6px; background: #ffffff; color: #536174; cursor: pointer; }
+    .sidebar-menu-btn { display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid #e3e8ef; border-radius: 6px; background: #ffffff; color: #536174; cursor: pointer; }
+    .sidebar-backdrop { position: fixed; inset: 0; z-index: 100; display: block; border: 0; background: rgba(21, 32, 51, .36); }
+    .app-sidebar .nav-section-label, .app-sidebar .sidebar-bottom { display: grid !important; }.app-sidebar .nav-section-label { margin-top: 18px !important; }.app-sidebar .workspace-nav { display: grid !important; overflow: visible !important; }.app-sidebar .workspace-nav-link { flex: initial !important; }
+    .workspace-topbar { margin-left: 0 !important; }.topbar-actions { flex-direction: row-reverse; }
+}

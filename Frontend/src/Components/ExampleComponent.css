@@ -1,0 +1,114 @@
+/* ExampleComponent.css - Theme-Aware Styling */
+
+/* Using CSS Variables for Automatic Theme Support */
+.example-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--bg-card);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.example-title {
+    color: var(--text-primary);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.example-card {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.example-card h2 {
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+}
+
+.example-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.example-btn {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-primary);
+    border: 2px solid var(--border-accent);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.example-btn:hover {
+    background: linear-gradient(135deg, var(--accent-hover), var(--accent-primary));
+    box-shadow: var(--shadow-accent);
+    transform: translateY(-2px);
+}
+
+.example-info {
+    background: var(--overlay-accent);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-primary);
+}
+
+.example-info h3 {
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+}
+
+.example-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.example-info li {
+    color: var(--text-secondary);
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.example-info li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-weight: bold;
+}
+
+/* Light Theme Specific Overrides (Optional) */
+.light-theme .example-card {
+    background: #FFFFFF;
+}
+
+.light-theme .example-info li::before {
+    content: '✓';
+    color: #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .example-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .example-title {
+        font-size: 1.5rem;
+    }
+
+    .example-card {
+        padding: 1.5rem;
+    }
+}

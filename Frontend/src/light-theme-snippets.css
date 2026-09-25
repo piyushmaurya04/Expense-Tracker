@@ -1,0 +1,164 @@
+/* 
+ * Light Theme Overrides for Components
+ * Copy the relevant section to each component's CSS file
+ * Updated with Royal Blue (#2563eb) elegant theme
+ */
+
+/* ===== PROFILE.CSS ===== */
+.light-theme .profile-container {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+.light-theme .profile-header {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.08));
+    border-bottom: 2px solid rgba(37, 99, 235, 0.2);
+}
+
+.light-theme .profile-avatar {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    box-shadow: 0 10px 35px rgba(37, 99, 235, 0.3);
+    color: #ffffff;
+}
+
+.light-theme .profile-name {
+    color: #1a202c;
+}
+
+.light-theme .profile-email {
+    color: #4a5568;
+}
+
+.light-theme .profile-section {
+    background: rgba(248, 246, 241, 0.6);
+    border: 2px solid rgba(226, 232, 240, 0.5);
+}
+
+.light-theme .profile-section h3 {
+    color: #2563eb;
+    border-bottom: 2px solid rgba(37, 99, 235, 0.2);
+}
+
+.light-theme .info-row label {
+    color: #4a5568;
+}
+
+.light-theme .info-row span {
+    color: #1a202c;
+}
+
+.light-theme .btn-edit {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border: 2px solid rgba(37, 99, 235, 0.2);
+}
+
+/* ===== LOGIN.CSS ===== */
+.light-theme .login-container {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+.light-theme .login-header h1 {
+    color: #2563eb;
+    text-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+}
+
+.light-theme .login-header p {
+    color: #4a5568;
+}
+
+.light-theme .form-group label {
+    color: #1a202c;
+}
+
+.light-theme .form-group input {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #e2e8f0;
+    color: #1a202c;
+}
+
+.light-theme .form-group input:focus {
+    background: rgba(255, 255, 255, 1);
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.light-theme .btn-login {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.25);
+}
+
+.light-theme .login-footer a {
+    color: #2563eb;
+}
+
+/* ===== REGISTER.CSS ===== */
+.light-theme .register-container {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+.light-theme .register-header h1 {
+    color: #2563eb;
+    text-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+}
+
+.light-theme .register-header p {
+    color: #4a5568;
+}
+
+/* ===== EXPENSEITEMS.CSS ===== */
+.light-theme .expense-item-card {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    border: 2px solid #e2e8f0;
+}
+
+.light-theme .expense-item-card:hover {
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+}
+
+/* ===== MODAL.CSS ===== */
+.light-theme .modal-content {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+    border: 2px solid rgba(226, 232, 240, 0.5);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .modal-header {
+    border-bottom: 2px solid rgba(37, 99, 235, 0.2);
+    background: rgba(248, 246, 241, 0.6);
+}
+
+.light-theme .modal-title {
+    color: #1a202c;
+}
+
+.light-theme .modal-body {
+    color: #1a202c;
+}
+
+.light-theme .btn-close {
+    filter: invert(1);
+}
+
+/* ===== DELETECONFIRMMODAL.CSS ===== */
+.light-theme .delete-modal {
+    background: linear-gradient(145deg, #FFFFFF 0%, #F8F6F1 100%);
+}
+
+.light-theme .delete-modal h2 {
+    color: #1a202c;
+}
+
+.light-theme .delete-modal p {
+    color: #4a5568;
+}
+
+.light-theme .btn-cancel {
+    background: linear-gradient(135deg, #a0aec0, #718096);
+}
+
+.light-theme .btn-confirm-delete {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
