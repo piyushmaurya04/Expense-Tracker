@@ -48,6 +48,10 @@ function AllExpenses() {
 
       const token = localStorage.getItem("accessToken");
       if (!token) {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        localStorage.removeItem("user");
+        window.dispatchEvent(new CustomEvent("session-expired"));
         setError("Authentication token missing. Please login again.");
         setLoading(false);
         return;
@@ -68,6 +72,10 @@ function AllExpenses() {
 
         // If authentication error, suggest re-login
         if (err.response?.status === 401 || err.response?.status === 403) {
+          localStorage.removeItem("accessToken");
+          localStorage.removeItem("refreshToken");
+          localStorage.removeItem("user");
+          window.dispatchEvent(new CustomEvent("session-expired"));
           setError("Session expired. Please login again.");
         }
       } finally {
