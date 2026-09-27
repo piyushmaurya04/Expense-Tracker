@@ -27,18 +27,11 @@ expenseApi.interceptors.response.use(
         return response;
     },
     (error) => {
-        // Only logout if token is actually invalid/expired
-        // Don't logout on every 401 (could be wrong endpoint, etc.)
         if (error.response && error.response.status === 401) {
-            const errorMessage = error.response.data?.message || '';
-            // Only clear auth if it's specifically a token issue
-            if (errorMessage.includes('token') || errorMessage.includes('Unauthorized')) {
-                console.warn('Token expired or invalid, logging out...');
-                localStorage.removeItem('accessToken');
-                localStorage.removeItem('refreshToken');
-                localStorage.removeItem('user');
-                window.location.href = '/login';
-            }
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('refreshToken');
+            localStorage.removeItem('user');
+            window.dispatchEvent(new CustomEvent('session-expired'));
         }
         return Promise.reject(error);
     }

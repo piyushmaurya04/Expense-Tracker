@@ -78,6 +78,68 @@
     animation: fadeIn 0.4s ease-out;
 }
 
+.page-loading-shell {
+    max-width: 1200px;
+    min-height: 60vh;
+    margin: 1.5rem auto;
+    padding: 1.25rem;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(31, 41, 55, 0.85), rgba(17, 24, 39, 0.9));
+    box-shadow: 0 8px 26px rgba(15, 23, 42, 0.18);
+    animation: fadeIn 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centered-loading-shell {
+    min-height: 70vh;
+}
+
+.page-loading-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 14px;
+    padding: 2rem;
+}
+
+.page-loading-center h1 {
+    margin: 0;
+    color: #10b981;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.page-loading-center span {
+    display: block;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+}
+
+.page-loading-spinner {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 4px solid rgba(16, 185, 129, 0.15);
+    border-top-color: #10b981;
+    animation: spin 0.9s linear infinite;
+}
+
+.large-spinner {
+    width: 68px;
+    height: 68px;
+    border-width: 5px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 /* Main Container - Two Column Layout */
 .mainCOntainer {
     max-width: 1600px;
