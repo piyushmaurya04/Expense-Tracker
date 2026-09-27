@@ -530,6 +530,7 @@
     .app-sidebar { position: static; width: 100%; min-height: auto; padding: 12px 16px; border-right: 0; border-bottom: 1px solid var(--border-color); } 
     .workspace-brand { padding: 0 0 12px; } 
     .nav-section-label { display: none; } 
+    .sidebar-collapse-btn { display: none !important; }
     .sidebar-bottom { display: grid; grid-template-columns: 1fr auto; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-color); } 
     .workspace-nav { display: flex; overflow-x: auto; } 
     .workspace-nav-link { flex: 0 0 auto; } 
