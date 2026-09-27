@@ -29,11 +29,12 @@ api.interceptors.response.use(
     },
     (error) => {
         if (error.response && error.response.status === 401) {
-            // Handle token expiration (e.g., redirect to login)
             localStorage.removeItem('accessToken');
             localStorage.removeItem('refreshToken');
             localStorage.removeItem('user');
-            window.location.href = '/login';
+
+            const event = new CustomEvent('session-expired');
+            window.dispatchEvent(event);
         }
         return Promise.reject(error);
     }

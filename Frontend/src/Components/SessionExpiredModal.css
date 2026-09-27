@@ -1,0 +1,84 @@
+.session-expired-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.68);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    z-index: 20000;
+}
+
+.session-expired-modal {
+    width: min(100%, 480px);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: 5px solid #ef4444;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    padding: 2rem 1.5rem 1.5rem;
+}
+
+.session-expired-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(239, 68, 68, 0.12);
+    color: #ef4444;
+    font-size: 2.4rem;
+}
+
+.session-expired-modal h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+    line-height: 1.2;
+    color: var(--text-primary);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.session-expired-message {
+    margin: 1rem 0 0.4rem;
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.session-expired-subtext {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+.session-expired-button {
+    margin-top: 1.5rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    font-weight: 800;
+    padding: 0.9rem 1.4rem;
+    min-width: 220px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(239, 68, 68, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.session-expired-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 22px rgba(239, 68, 68, 0.3);
+}
+
+.session-expired-button svg {
+    font-size: 1.2rem;
+}

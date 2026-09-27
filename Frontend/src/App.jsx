@@ -1,31 +1,62 @@
-import React from 'react'
-import AddExpense from './Components/AddExpense'
-import AddIncome from './Components/AddIncome'
-import Navbar from './Components/Navbar'
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import Register from './Components/Register';
-import { AuthProvider, useAuth } from './Context/AuthContext';
-import { ThemeProvider } from './Context/ThemeContext';
-import Login from './Components/Login';
-import Dashboard from './Components/Dashboard';
-import ProtectedRoute from './Components/ProtectedRoute';
-import PublicRoute from './Components/PublicRoute';
-import AllExpenses from './Components/ALLExpense';
-import AllIncomes from './Components/ALLIncome';
-import Profile from './Components/Profile';
-import Analytics from './Components/Analytics';
-import Budget from './Components/Budget';
-import './app-overrides.css';
+import React, { useState, useEffect } from "react";
+import AddExpense from "./Components/AddExpense";
+import AddIncome from "./Components/AddIncome";
+import Navbar from "./Components/Navbar";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import Register from "./Components/Register";
+import { AuthProvider, useAuth } from "./Context/AuthContext";
+import { ThemeProvider } from "./Context/ThemeContext";
+import Login from "./Components/Login";
+import Dashboard from "./Components/Dashboard";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import PublicRoute from "./Components/PublicRoute";
+import AllExpenses from "./Components/ALLExpense";
+import AllIncomes from "./Components/ALLIncome";
+import Profile from "./Components/Profile";
+import Analytics from "./Components/Analytics";
+import Budget from "./Components/Budget";
+import SessionExpiredModal from "./Components/SessionExpiredModal";
+import "./app-overrides.css";
 function AppContent() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
+  const [showSessionExpiredModal, setShowSessionExpiredModal] = useState(false);
+
+  useEffect(() => {
+    const handleSessionExpired = () => {
+      setShowSessionExpiredModal(true);
+    };
+
+    window.addEventListener("session-expired", handleSessionExpired);
+    return () =>
+      window.removeEventListener("session-expired", handleSessionExpired);
+  }, []);
+
+  const handleRelogin = async () => {
+    setShowSessionExpiredModal(false);
+    await logout();
+    navigate("/login");
+  };
 
   // Hide navbar on login and register pages
-  const hideNavbar = location.pathname === '/login' || location.pathname === '/register';
+  const hideNavbar =
+    location.pathname === "/login" || location.pathname === "/register";
 
   return (
     <>
       {!hideNavbar && user && <Navbar />}
+      <SessionExpiredModal
+        isOpen={showSessionExpiredModal}
+        onRelogin={handleRelogin}
+      />
       <Routes>
         {/* Redirect root to dashboard */}
         <Route path="/" element={<Navigate to="/dashboard" />} />
@@ -62,7 +93,13 @@ function AppContent() {
           element={
             <ProtectedRoute>
               <div className="container mt-4 feature-page">
-                <header className="feature-page-header"><p className="page-kicker">Transactions</p><h1>Record expense</h1><span>Add a purchase, payment, or reimbursement to your ledger.</span></header>
+                <header className="feature-page-header">
+                  <p className="page-kicker">Transactions</p>
+                  <h1>Record expense</h1>
+                  <span>
+                    Add a purchase, payment, or reimbursement to your ledger.
+                  </span>
+                </header>
                 <AddExpense />
               </div>
             </ProtectedRoute>
@@ -81,7 +118,14 @@ function AppContent() {
           element={
             <ProtectedRoute>
               <div className="container mt-4 feature-page">
-                <header className="feature-page-header"><p className="page-kicker">Transactions</p><h1>Record income</h1><span>Add a deposit, salary payment, or other earnings to your ledger.</span></header>
+                <header className="feature-page-header">
+                  <p className="page-kicker">Transactions</p>
+                  <h1>Record income</h1>
+                  <span>
+                    Add a deposit, salary payment, or other earnings to your
+                    ledger.
+                  </span>
+                </header>
                 <AddIncome />
               </div>
             </ProtectedRoute>
@@ -136,4 +180,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
