@@ -130,6 +130,7 @@ public class SecurityConfig {
                                 "/analytics",
                                 "/budget",
                                 "/favicon.ico",
+                                "/favicon.png",
                                 "/assets/**",
                                 "/static/**",
                                 "/api/auth/**",
