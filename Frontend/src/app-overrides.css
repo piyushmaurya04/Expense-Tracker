@@ -4,6 +4,10 @@
     text-shadow: none !important;
 }
 
+.page-loading-spinner {
+    animation: spin 0.8s linear infinite !important;
+}
+
 body, .auth-page, .headContainer, .dashboard-container, .analytics-container, .budget-container, .profile {
     background: #f5f7fa !important;
     color: #152033 !important;
@@ -125,6 +129,10 @@ body, .auth-page, .headContainer, .dashboard-container, .analytics-container, .b
     box-shadow: none !important;
 }
 
+.modal-overlay {
+    margin-left: 0 !important;
+}
+
 .profile .edit-button,
 .profile .savebtn {
     color: #ffffff !important;
@@ -163,6 +171,10 @@ body, .auth-page, .headContainer, .dashboard-container, .analytics-container, .b
 .content-wrapper {
     grid-template-columns: minmax(220px, 280px) minmax(0, 1fr) !important;
     gap: 20px !important;
+}
+
+.content-wrapper:not(:has(.left-sidebar)) {
+    grid-template-columns: minmax(0, 1fr) !important;
 }
 
 .left-sidebar {
@@ -296,6 +308,18 @@ body, .auth-page, .headContainer, .dashboard-container, .analytics-container, .b
         margin-left: 0 !important;
     }
 
+    .page-loading-shell {
+        position: fixed !important;
+        top: 66px !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 236px !important;
+        width: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        z-index: 1;
+    }
+
     #root > .dashboard-container:not(.app-sidebar),
     #root > .analytics-container:not(.app-sidebar),
     #root > .budget-container:not(.app-sidebar),
@@ -321,6 +345,23 @@ body, .auth-page, .headContainer, .dashboard-container, .analytics-container, .b
         margin-left: 72px !important;
     }
 
+    .app-sidebar.is-collapsed .sidebar-bottom {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2px;
+    }
+
+    .app-sidebar.is-collapsed .sidebar-bottom > a,
+    .app-sidebar.is-collapsed .sidebar-bottom > button {
+        min-width: 0;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        justify-content: center;
+    }
+
+    body.sidebar-collapsed .page-loading-shell {
+        left: 72px !important;
+    }
+
     body.sidebar-collapsed #root > .dashboard-container:not(.app-sidebar),
     body.sidebar-collapsed #root > .analytics-container:not(.app-sidebar),
     body.sidebar-collapsed #root > .budget-container:not(.app-sidebar),
@@ -338,6 +379,10 @@ body, .auth-page, .headContainer, .dashboard-container, .analytics-container, .b
 }
 
 @media (max-width: 760px) {
+    .page-loading-shell {
+        left: 0 !important;
+    }
+
     .dashboard-container, .mainCOntainer, .analytics-container, .budget-container, .profile { width: 100% !important; }
     .right-content { padding: 16px !important; }
     .expense-list-item, .income-list-item { grid-template-columns: minmax(0, 1fr) auto !important; }
